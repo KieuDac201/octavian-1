@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+@import "mixin";
+$button-color: #f65464;
+$white-color: #fff;
+$light-color: #eeeeee;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  font-family: 'Raleway', sans-serif;
+  color: $white-color;
+  color: $white-color;
+}
+body{
+  max-width: 1920px;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  cursor: grab;
+}
+
+
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+
+  &-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    max-width: 1785px;
+    padding-top: 35px;
+    margin: 0 auto;
+    @include maxw(768px){
+      padding: 0 20px;
+      padding-top: 20px;
+    }
+  }
+
+  &-logo{
+    font-weight: 600;
+    color: $white-color;
+    font-size: 22px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+
+    span{
+      margin-left: 12px;
+    }
+  }
+
+  &-nav{
+    display: flex;
+    align-items: center;
+  }
+
+  &-search{
+    margin-right: 60px;
+    margin-left: 45px;
+    cursor: pointer;
+    @include maxw(500px){
+      display: none;
+    }
+  }
+
+  &-cart{
+    cursor: pointer;
+    @include maxw(500px){
+      display: none;
+    }
+  }
+
+  &-menuIcon{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    
+    img{
+      margin-right: 8px;
+      @include maxw(500px){
+        padding-right: 0;
+      }
+    }
+
+    span{
+      @include maxw(500px){
+        display: none;
+      }
+    }
+  }
+}
+
+
+.menu{
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  max-width: 844px;
+  width: 100%;
+  background-image: linear-gradient( 45deg, rgb(246,103,103) 0%, rgb(246,136,38) 100%);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: -100%;
+  transition: 0.2s ease;
+  &.active{
+    right: 0;
+  }
+
+  &-close{
+    position: absolute;
+    top: 60px;
+    right: 10%;
+    cursor: pointer;
+    font-size: 24px;
+    @include maxw(1000px){
+      top: 30px;
+    }
+    img{
+      width: 30px;
+      @include maxw(1000px){
+        width: 24px;
+      }
+    }
+  }
+
+  &-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-item{
+    color: $white-color;
+    text-decoration: none;
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+
+  &-sci{
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    a{
+      text-decoration: none;
+      color: $white-color;
+      margin: 0 14px;
+      font-size: 18px;
+      opacity: 0.6;
+      transition: 0.2s ease;
+      &:hover{
+        opacity: 1;
+      }
+    }
+  }
+
+  &-copyright{
+    position: absolute;
+    bottom: 40px;
+    padding: 0 20px;
+  }
+}
+
+
+.splide__arrow{
+  display: none;
+}
+.splide__pagination__page.is-active{
+  opacity: 1;
+}
+.main{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background: url("./images/bg-1.png") no-repeat center;
+  background-size: cover;
+  &.main-2{
+    background: url("./images/bg-2.png");
+  }
+  &.main-3{
+    background: url("./images/bg-3.png");
+  }
+  &.main-4{
+    background: url("./images/bg-4.png");
+  }
+  &.main-5{
+    background: url("./images/bg-5.png");
+  }
+  
+
+
+  &-container{
+    max-width: 1120px;
+    width: 100%;
+    padding: 0 30px;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    @include maxw(1250px){
+      padding: 0 60px;
+    }
+    @include maxw(768px){
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 30px;
+      padding-left: 20px;
+      padding-right: 40px;
+    }
+    @include maxw(768px){
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 30px;
+    }
+    @include maxw(400px){
+      gap: 20px;
+    }
+  }
+
+  &-content{
+    padding-right: 80px;
+    @include maxw(1600px){
+      padding-right: 50px;
+    }
+    @include maxw(1000px){
+      padding-right: 30px;
+    }
+  }
+
+  &-title{
+    font-size: 60px;
+    color: $white-color;
+    line-height: 1.26;
+    font-weight: 700;
+    margin-bottom: 40px;
+    @include maxw(1600px){
+      font-size: 50px;
+      margin-bottom: 25px;
+    }
+    @include maxw(1000px){
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+    @include maxw(768px){
+      font-size: 30px;  
+      margin-bottom: 15px;
+    }
+    @include maxw(400px){
+      font-size: 26px;  
+      margin-bottom: 5px;
+    }
+  }
+
+  &-desc{
+    color: $light-color;
+    line-height: 1.5;
+    margin-bottom: 64px;
+    @include maxw(1600px){
+      margin-bottom: 40px;
+    }
+    @include maxw(1600px){
+      margin-bottom: 30px;
+    }
+    @include maxw(768px){
+      margin-bottom: 20px;
+    }
+    @include maxw(400px){
+      margin-bottom: 15px;
+    }
+  }
+
+  &-btn{
+    width: 270px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white-color;
+    background: $button-color;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    @include maxw(1600px){
+      width: 220px;
+      height: 55px;
+    }
+    @include maxw(1600px){
+      width: 180px;
+      height: 45px;
+      font-size: 16px;
+    }
+    
+  }
+
+  &-img{
+    max-width: 575px;
+    width: 100%;
+    @include maxw(1600px){
+      max-width: 450px;
+    }
+    @include maxw(768px){
+      max-width: 340px;
+    }
+    @include maxw(400px){
+      max-width: 250px;
+    }
+
+    img{
+      width: 100%;
+    }
+  }
+}
+.footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-bottom: 40px;
+  @include maxw(768px){
+    padding-bottom: 20px;
+  }
+
+  &-container{
+    padding: 0 30px;
+    max-width: 1785px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    @include maxw(768px){
+      padding: 0 20px;
+      flex-direction: column;
+      align-items: start;
+      gap: 15px;
+    }
+  }
+  
+  &-sci{
+    display: flex;
+    align-items: center;
+
+    a{
+      color: $white-color;
+      margin-right: 28px;
+      font-size: 18px;
+      opacity: 0.6;
+      transition: 0.2s ease;
+      &:hover{
+        opacity: 1;
+      }
+    }
+  }
+  &-copyright{
+    @include maxw(768px){
+      display: none;
+    }
+  }
+
+}
